@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html> 
+<head>
+<meta charset="UTF-8">
+<title>Task7-Javascript</title>
+</head>  
+<body>
+<p>The current time is:</p>
+<p id="tt"></p>
+<script>
+setInterval(CurrentTime , 1000) ;
+
+ function CurrentTime() {   
+const date=new Date ();
+document.getElementById("tt").innerHTML=date.toLocaleTimeString();
+ }
+</script>
+</body>  
+</html>
