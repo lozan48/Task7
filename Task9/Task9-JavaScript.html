@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Task9-Javascript</title>
+  </head>
+  <body>
+    <button onclick="fun()">Get ip</button>
+    <script>
+      function fun() {
+        let FetchRes = fetch("https://api.ipify.org/");
+        FetchRes.then((res) => res.text()).then(d=>{console.log(d)});
+      }
+    </script>
+  </body>
+</html>
