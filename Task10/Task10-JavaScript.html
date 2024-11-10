@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Task10-Javascript</title>
+  </head>
+  <body>
+    <button id="get-ip-button" onclick="fun()">Get ip</button>
+    <script>
+      function fun() {
+        // Fetch IP address from the API
+        fetch("https://api.ipify.org/")
+          .then((res) => res.text())
+          .then((ip) => {
+            // Update the button text with the fetched IP address
+            document.getElementById("get-ip-button").innerText = ip;
+          });
+      }
+    </script>
+  </body>
+</html>
