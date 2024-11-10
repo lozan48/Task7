@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Task13-Javascript</title>
+</head>
+<body>
+  <h1>Enter Your Name</h1>
+  <label for="name">Name:</label>
+  <input type="text" id="name" placeholder="Name" autocomplete="name" />
+ 
+  <br /><br />
+
+  <button onclick="submitName()">Submit</button>
+
+  <script>
+    function submitName() {
+      // Get the name from the text input field
+      const name = document.getElementById("name").value;
+
+      // Check if the name field is empty
+      if (!name) {
+        window.alert("Please enter a name.");
+        return;
+      }
+
+      // Make a request to the Agify API
+      fetch(`https://api.agify.io?name=${name}`)
+        .then((response) => response.json())
+        .then((data) => {
+          // Deconstruct the data object to get the name and age
+          const { name: enteredName, age } = data;
+
+          // Show a popup with the entered name and predicted age
+          window.alert(`Your name is: ${enteredName}\nYour age is: ${age}`);
+        })
+        .catch((error) => {
+          // Handle any errors that occur during the request
+          window.alert("An error occurred: " + error.message);
+        });
+    }
+  </script>
+</body>
+</html>
