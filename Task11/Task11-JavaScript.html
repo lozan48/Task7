@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Task11-Javascript</title>
+  </head>
+  <body>
+    <button id="get-ip-button" onclick="fun()">Get ip</button>
+    <script>
+      function fun() {
+        // Fetch IP address from the API
+        fetch("https://api.ipify.org/")
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return res.text();
+          })
+          .then((ip) => {
+            // Update the button text with the fetched IP address
+            document.getElementById("get-ip-button").innerText = ip;
+          })
+          .catch((error) => {
+            // Show an alert with the error message
+            window.alert("Error fetching IP: " + error.message);
+          });
+      }
+    </script>
+  </body>
+</html>
